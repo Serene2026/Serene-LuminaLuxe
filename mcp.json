@@ -1,0 +1,33 @@
+{
+	"servers": {
+		"postmanlabs/postman-mcp-server": {
+			"type": "stdio",
+			"label": "Postman MCP Server",
+			"description": "Postman MCP Server for managing API keys and other configurations",
+			"icon": "https://www.postman.com/postmanlabs/postman-mcp-server",
+			"port": 3000,
+			"command": "npx",
+			"args": [
+				"@postman/postman-mcp-server@latest"
+			],
+			"env": {
+				"POSTMAN_API_KEY": "${input:api_key}"
+
+			},
+			"gallery": "https://api.mcp.github.com",
+			"version": "1.0.0"
+		}
+	},
+	"inputs": [
+		{
+			"id": "api_key",
+			"name": "API Key",
+			"label": "API Key",
+			"required": true,
+			"type": "promptString",
+			"description": "Your API key for the service",
+			"password": true
+
+		}
+	]
+}
