@@ -1,0 +1,72 @@
+.feature h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;        /* space between icon and text */
+  margin-bottom: 5px;
+}
+
+.icon {
+  font-size: 1.4rem;
+  color: #7c3aed;   /* soft luxurious purple (change if needed) */
+}
+
+/* NEW: shop controls */
+.search-input {
+  padding: 10px 12px;
+  border: 2px solid #E5E5E5;
+  border-radius: 8px;
+  min-width: 220px;
+  font-size: 14px;
+  background: white;
+}
+.sort-select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid #E5E5E5;
+  font-size: 14px;
+  background: white;
+}
+
+/* Featured grid */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.featured-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.featured-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+
+/* ensure product cards indicate clickability when we added openProduct on click */
+.product-card { cursor: pointer; }
+.product-card .product-actions button { cursor: pointer; }
+
+/* Increase title sizes for grid views (products, categories, featured) */
+.product-name,
+.category-card-title,
+.featured-card .product-name {
+  font-size: 1.05rem; /* slightly larger */
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Slightly larger category card title and balance weight */
+.category-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .product-name,
+  .category-card-title,
+  .featured-card .product-name {
+    font-size: 1rem; /* keep compact on small screens */
+  }
+}
