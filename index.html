@@ -1789,6 +1789,12 @@
 
     <!-- The mobile button sits cleanly next to the nav wrapper -->
     <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">☰</button>
+    <li><a href="#" onclick="event.preventDefault(); showPage('home')">Home</a></li>
+<li><a href="#" onclick="event.preventDefault(); showPage('shop')">Shop</a></li>
+<li><a href="#" onclick="event.preventDefault(); showPage('about')">About Us</a></li>
+<li><a href="#" onclick="event.preventDefault(); showPage('contact')">Contact</a></li>
+<li><a href="#" class="cart-icon" onclick="event.preventDefault(); showPage('cart')">🛒 <span class="cart-count" id="cart-count">0</span></a></li>
+
   </div>
 </header>
 
