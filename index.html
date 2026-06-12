@@ -1773,19 +1773,25 @@
   </div>
 
  <!-- Header -->
-  <header class="header">
-   <div class="header-container"><a href="#" class="logo" id="store-name" onclick="showPage('home')">SERENE</a> 
-    <nav>
-     <ul class="nav-menu">
-      <li><a href="#" onclick="showPage('home')">Home</a></li>
-      <li><a href="#" onclick="showPage('shop')">Shop</a></li>
-      <li><a href="#" onclick="showPage('about')">About Us</a></li>
-      <li><a href="#" onclick="showPage('contact')">Contact</a></li>
-      <li><a href="#" class="cart-icon" onclick="showPage('cart')"> 🛒 <span class="cart-count" id="cart-count">0</span></a></li>
-     </ul>
-    </nav><button class="mobile-menu-toggle">☰</button>
-   </div>
-  </header>
+<header class="header">
+  <div class="header-container">
+    <a href="#" class="logo" id="store-name" onclick="showPage('home')">SERENE</a> 
+    
+    <nav class="nav-wrapper">
+      <ul class="nav-menu">
+        <li><a href="#" onclick="showPage('home')">Home</a></li>
+        <li><a href="#" onclick="showPage('shop')">Shop</a></li>
+        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+        <li><a href="#" class="cart-icon" onclick="showPage('cart')">🛒 <span class="cart-count" id="cart-count">0</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- The mobile button sits cleanly next to the nav wrapper -->
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">☰</button>
+  </div>
+</header>
+
 
   <main class="main-content"><!-- Home Page -->
    <section id="home-page" class="page-section active">
