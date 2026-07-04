@@ -549,6 +549,61 @@
       box-shadow:0 6px 18px rgba(37,211,102,0.16);
     }
 
+    /* ===========================
+   Mobile Fix for Bank Modal
+   =========================== */
+@media (max-width: 768px) {
+
+  .bank-card {
+    width: 95%;
+    max-width: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .bank-list {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 15px;
+  }
+
+  .bank-list .bank-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    min-height: auto;
+  }
+
+  .bank-list .bank-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .bank-details {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .bank-meta {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .bank-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bank-actions button,
+  #send-whatsapp-btn,
+  .bank-close {
+    width: 100%;
+  }
+}
+
     /* Products Grid */
     .section-title {
       text-align: center;
