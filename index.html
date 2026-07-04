@@ -2523,27 +2523,29 @@
 
    </footer>
 
-   <!-- Product Detail Modal -->
-  <div class="modal-backdrop" id="product-modal-backdrop" onclick="if(event.target === this) closeProductModal();">
-     <div class="product-modal" role="dialog" aria-modal="true">
-       <div class="modal-gallery">
-         <img id="modal-main-image" class="modal-main-image" src="" alt="Product image">
-         <div class="modal-thumbs" id="modal-thumbs"></div>
-       </div>
-      <div class="modal-details">
-        <button style="float:right;background:none;border:none;font-size:20px;cursor:pointer;color:#333;padding:8px;transition:all 0.2s ease" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#333'" title="Close" onclick="closeProductModal()">✕</button>
-        <h3 id="modal-name" style="margin-top:6px;color:#8B7355;font-size:28px;font-weight:700"></h3>
-        <div id="modal-sub" style="color:#999;font-size:12px;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px"></div>
-        <div id="modal-price" style="font-size:24px;color:#8B7355;font-weight:600;margin-bottom:16px"></div>
-        <div id="modal-desc" style="color:#444;line-height:1.6;margin-bottom:20px;font-size:14px;"></div>
-        <div id="modal-options" style="margin-bottom:20px"></div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <button class="btn-primary" id="modal-add-btn" style="flex:1;min-width:160px;background:#8B7355 !important;color:white !important;border:2px solid #8B7355 !important;font-weight:700 !important;font-size:15px !important">Add to Cart</button>
-        </div>
-
-      </div>
-     </div>
-   </div>
+   
+<!-- Product Detail Modal --> 
+<div class="modal-backdrop" id="product-modal-backdrop" onclick="if(event.target === this) closeProductModal();"> 
+<div class="product-modal" role="dialog" aria-modal="true"> 
+<div class="modal-gallery"> 
+<img id="modal-main-image" class="modal-main-image" src="" alt="Product image"> 
+<div class="modal-thumbs" id="modal-thumbs"></div> 
+</div> 
+<div class="modal-details"> 
+<button style="float:right; background:none; border: none; font-size:20px;cursor:pointer;color:#333;padding:8px;transition:all 0.2s ease" 
+onmouseover="this.style.color='#887355" onmouseout="this.style.color="#333'" title="Close" onclick="closeProductModal()">X</button> 
+<h3 id="modal-name" style="margin-top:6px;color:#887355; font-size: 28px; font-weight:700"></h3> 
+<div id="modal-sub" style="color: #999; font-size:12px;margin-bottom: 10px; text-transform:uppercase; letter-spacing:1px"></div> 
+<div id="modal-price" style="font-size:24px; color:#887355; font-weight:600; margin-bottom:16px"></div> 
+<div id="modal-desc" style="color:#444; line-height:1.6;margin-bottom:20px; font-size:14px;"></div> 
+<div id="modal-options" style="margin-bottom:20px"></div> 
+<div style="display: flex; gap: 12px; flex-wrap:wrap"> 
+<button class="btn-primary" id="modal-add-btn" style="flex:1; min-width: 160px; background:#887355 !important; color:white !important; 
+border:2px solid #887355 !important; font-weight:700 !important; font-size:15px !important">Add to Cart</button> 
+</div> 
+</div> 
+</div> 
+</div>
 
    <!-- Bank modal -->
    <div class="bank-modal" id="bank-modal">
