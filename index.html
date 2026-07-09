@@ -3199,7 +3199,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         image: 'WhatsApp Image 2025-12-03 at 12.37.22 PM.jpeg',
         images:['WhatsApp Image 2025-12-03 at 12.37.22 PM.jpeg',
                 'WhatsApp Image 2025-12-03 at 12.36.31 PM.jpeg'],
-        comingSoon: true,
+        outOfStock: true
       },
       {
         id: 'bottle-2',
@@ -3209,7 +3209,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         price: 1200,
         description: '- Material: Stainless steel\n- Capacity: 500 ml\n- Range of temperature: -20 ℃ ~ 100 ℃\n- Insulated effect: Keep cold to 12hrs, keep warm to 6~12hrs\n- Features: Lightweight, sublimation-ready surface, secure box packaging\n- Uses: Custom sublimation prints, gifting, personal hydration\n- After placing your order, you will be redirected to WhatsApp. Please send your design or text there, and we will confirm it before printing.',
         image:'Custom-Logo-Color-Change-Cute-Cold-Temperature-Aluminium-Water-Bottle-for-Promotional-Gift.avif',
-        comingSoon: true,
+        comingSoon: true
       },
       {
         id: 'bottle-3',
@@ -3219,7 +3219,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         price: 1300,
         description: '- Material: Stainless Steel- White Color\n- Capacity: 500 ml\n- Range of temperature: -20 ℃ ~ 100 ℃\n- Insulated effect: Keep cold to 12hrs, keep warm to 6~12hrs\n- Features: Lightweight, sublimation-ready surface, secure box packaging\n- Uses: Custom sublimation prints, gifting, personal hydration\n- After placing your order, you will be redirected to WhatsApp. Please send your design or text there, and we will confirm it before printing.',
         image: 'download.webp',
-        comingSoon: true,
+        outOfStock: true
       },
 
 
@@ -4193,6 +4193,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
     }
     
  // Load Products
+ 
     function loadProducts() {
       const grid = document.getElementById('products-grid');
       if (!grid) return;
@@ -4210,8 +4211,18 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
       grid.innerHTML = list.map(product => `
         <div class="product-card" data-category="${product.category}" onclick="openProduct('${product.id}')">
           <div class="image-wrap">
+            
             <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src=''; this.style.background='linear-gradient(135deg, #F8F6F3, #E8E3DC)'; this.style.display='block';">
-            ${product.outOfStock ? `<div class="product-badge" style="background: #d32f2f;">OUT OF STOCK</div>` : (product.badge ? `<div class="product-badge">${product.badge}</div>` : (product.sale ? `<div class="product-badge">SALE</div>` : ''))}
+           ${product.comingSoon
+    ? `<div class="product-badge" style="background:#f59e0b;">COMING SOON</div>`
+    : (product.outOfStock
+        ? `<div class="product-badge" style="background:#d32f2f;">OUT OF STOCK</div>`
+        : (product.badge
+            ? `<div class="product-badge">${product.badge}</div>`
+            : (product.sale
+                ? `<div class="product-badge">SALE</div>`
+                : '')))}
+
             <div class="cart-circle" onclick="event.stopPropagation(); addToCart('${product.id}')"><i class="fa fa-cart-shopping"></i></div>
           </div>
           <div class="product-info">
@@ -4221,7 +4232,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         </div>
       `).join('');
     }
- 
+
     // Product Filtering (event-safe)
     function mixProducts(category) {
       currentFilter = category;
