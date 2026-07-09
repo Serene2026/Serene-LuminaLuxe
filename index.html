@@ -3523,7 +3523,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         price: 750,
         description: '- Material: Cotton-blend fabric\n- Design: Six-panel baseball cap with adjustable closure\n- Features: Sublimation-ready surface, comfortable fit\n- Uses: Custom sublimation prints, branded promotional items, everyday wear',
         image: 'product-jpeg-500x500.webp',
-        comingSoon: true
+        outOfStock: true
       },
 
       // Photo Prints & Frames
@@ -3901,9 +3901,9 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         id: 'other-2',
         name: 'Certificates',
         category: 'other',
-        subcategory: 'Customize Certificates (MOQ 60)',
+        subcategory: 'Customize Certificates (MOQ 100)',
         price: 60,
-        description: '- Material: Premium cardstock available in 4 variants\n- Customization: Professional design support included\n- Features: High-quality printing, elegant finishes, customizable layouts\n- Minimum Order: 60 certificates\n- Uses: Academic achievements, corporate awards, training programs, employee recognition',
+        description: '- Material: Premium cardstock available in 4 variants\n- Customization: Professional design support included\n- Features: High-quality printing, elegant finishes, customizable layouts\n- Minimum Order: 100 certificates\n- Uses: Academic achievements, corporate awards, training programs, employee recognition',
         image: 'Certificate-Printing.jpg',
         images:[
           '02-10.jpg',
@@ -3916,8 +3916,8 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         pricingByBoardType: {
           'Art board': 60,
           'Ivory board': 60,
-          'Ice Silver board': 80,
-          'Ice Gold board': 80
+          'Ice Silver board': 100,
+          'Ice Gold board': 100
         }
       },
       {
@@ -3936,20 +3936,112 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         id: 'other-4',
         name: 'Bill Books',
         category: 'other',
-        subcategory: 'Custom Printed Bill Books',
-        price: 900,
-        description: '- Material: NCR (No Carbon Required) bill book\n- Customization: Design and professional printing included\n- Features: Organized layout, durability, easy record-keeping\n- Options: Black & White or Full Color printing\n- Uses: Invoicing, billing, financial tracking, business organization',
+        subcategory: 'Custom Printed Bill Books (MOQ 10)',
+        price: 700,
+        basePrice: 700,
+        description: '- Material: NCR (No Carbon Required) bill book\n- Customization: Design and professional printing included\n- Features: 50-page organized layout, durability, easy record-keeping\n- MOQ: 10 books\n- Uses: Invoicing, billing, financial tracking, business organization',
         image: '2_NCR_Bill_Book-01.jpg',
-        images:[
-        'WhatsApp Image 2025-12-21 at 3.02.06 PM.jpeg',
-        '2_NCR_Bill_Book-01.jpg'          
+        images: [
+            'WhatsApp Image 2025-12-21 at 3.02.06 PM.jpeg',
+            '2_NCR_Bill_Book-01.jpg'
         ],
+
         options: {
-          "Print Type": ['B & W', 'Color']
+            "Size": ["A4", "A5", "A6"],
+            "Printing": ["B & W", "Laser", "Inkjet"],
+            "Copy Type": [
+                "Without copy",
+                "With empty copy",
+                "With print copy",
+                "NCR 1copy",
+                "NCR 2copy"
+            ],
+            "Numbering": ["No", "Yes"]
         },
-        pricingByPrintType: {
-          'B & W': 900,
-          'Color': 1600
+
+        pricingByOptions: {
+
+            "B & W": {
+
+                A4: {
+                    "Without copy": { No: 700, Yes: 750 },
+                    "With empty copy": { No: 950, Yes: 1000 },
+                    "With print copy": { No: 1200, Yes: 1250 },
+                    "NCR 1copy": { No: 1550, Yes: 1600 },
+                    "NCR 2copy": { No: 2400, Yes: 2450 }
+                },
+
+                A5: {
+                    "Without copy": { No: 400, Yes: 450 },
+                    "With empty copy": { No: 525, Yes: 575 },
+                    "With print copy": { No: 650, Yes: 700 },
+                    "NCR 1copy": { No: 825, Yes: 875 },
+                    "NCR 2copy": { No: 1250, Yes: 1300 }
+                },
+
+                A6: {
+                    "Without copy": { No: 250, Yes: 300 },
+                    "With empty copy": { No: 320, Yes: 370 },
+                    "With print copy": { No: 380, Yes: 430 },
+                    "NCR 1copy": { No: 475, Yes: 525 },
+                    "NCR 2copy": { No: 675, Yes: 725 }
+                }
+            },
+
+            "Laser": {
+
+                A4: {
+                    "Without copy": { No: 1700, Yes: 1750 },
+                    "With empty copy": { No: 1950, Yes: 2000 },
+                    "With print copy": { No: 2200, Yes: 2250 },
+                    "NCR 1copy": { No: 2550, Yes: 2600 },
+                    "NCR 2copy": { No: 3400, Yes: 3450 }
+                },
+
+                A5: {
+                    "Without copy": { No: 950, Yes: 1000 },
+                    "With empty copy": { No: 1075, Yes: 1125 },
+                    "With print copy": { No: 1200, Yes: 1250 },
+                    "NCR 1copy": { No: 1375, Yes: 1425 },
+                    "NCR 2copy": { No: 1800, Yes: 1850 }
+                },
+
+                A6: {
+                    "Without copy": { No: 590, Yes: 640 },
+                    "With empty copy": { No: 650, Yes: 700 },
+                    "With print copy": { No: 720, Yes: 770 },
+                    "NCR 1copy": { No: 820, Yes: 870 },
+                    "NCR 2copy": { No: 1015, Yes: 1065 }
+                }
+            },
+
+            "Inkjet": {
+
+                A4: {
+                    "Without copy": { No: 1200, Yes: 1250 },
+                    "With empty copy": { No: 1450, Yes: 1500 },
+                    "With print copy": { No: 1700, Yes: 1750 },
+                    "NCR 1copy": { No: 2050, Yes: 2100 },
+                    "NCR 2copy": { No: 2900, Yes: 2950 }
+                },
+
+                A5: {
+                    "Without copy": { No: 700, Yes: 750 },
+                    "With empty copy": { No: 825, Yes: 875 },
+                    "With print copy": { No: 950, Yes: 1000 },
+                    "NCR 1copy": { No: 1125, Yes: 1150 },
+                    "NCR 2copy": { No: 1550, Yes: 1600 }
+                },
+
+                A6: {
+                    "Without copy": { No: 460, Yes: 510 },
+                    "With empty copy": { No: 525, Yes: 575 },
+                    "With print copy": { No: 590, Yes: 640 },
+                    "NCR 1copy": { No: 680, Yes: 730 },
+                    "NCR 2copy": { No: 900, Yes: 950 }
+                }
+            }
+
         }
       },
       {
@@ -4974,14 +5066,24 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         }
       }
       
-    // Auto-update price for Bill Books based on print type
-      if (product && product.id === 'other-4' && key === 'Print Type' && product.pricingByPrintType) {
-        const newPrice = product.pricingByPrintType[value];
-        if (newPrice) {
-          document.getElementById('modal-price').textContent = `Rs. ${newPrice}`;
-          // Optionally update the product's price temporarily for cart
-          product.currentPrice = newPrice;
-        }
+
+    // Auto-update price for Bill Books
+      if (product && product.id === 'other-4') {
+
+          const printing = _modalState.selectedOptions["Printing"];
+          const size = _modalState.selectedOptions["Size"];
+          const copyType = _modalState.selectedOptions["Copy Type"];
+          const numbering = _modalState.selectedOptions["Numbering"];
+
+          if (printing && size && copyType && numbering && product.pricingByOptions) {
+
+              const price = product.pricingByOptions[printing]?.[size]?.[copyType]?.[numbering];
+
+              if (price !== undefined) {
+                  document.getElementById('modal-price').textContent = `Rs. ${price}`;
+                  product.currentPrice = price;
+              }
+          }
       }
 
     // Auto-update price for Business Card based on combined board type and print sides
