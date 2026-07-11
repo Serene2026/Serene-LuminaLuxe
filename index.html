@@ -5176,7 +5176,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         }
       }
 
-      // Auto-update price for T-Shirts based on GSM, Collar and Print Side (apparel products)
+      // Auto-update price for T-Shirts based on GSM, Collar and Print Side(apparel products)
         if (
             product &&
             product.pricingByGsmAndCollar &&
@@ -5187,8 +5187,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
             const selectedCollar = _modalState.selectedOptions['collar'];
             const selectedPrintSide = _modalState.selectedOptions['print side'];
 
-            // Only update price after ALL required options are selected
-            if (selectedGsm && selectedCollar && selectedPrintSide) {
+            if (selectedGsm && selectedCollar) {
 
                 let newPrice = product.pricingByGsmAndCollar[selectedGsm][selectedCollar];
 
@@ -5199,12 +5198,8 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
 
                 document.getElementById('modal-price').textContent = `Rs. ${newPrice}`;
                 product.currentPrice = newPrice;
-            } else {
-                // Clear price until all required options are selected
-                document.getElementById('modal-price').textContent = 'Please select GSM, Collar and Print Side';
             }
-        }
-          
+          }
 
       // Auto-update price for Sublimation Tote Bags based on Image Size
       if (product && (product.id === 'tote-1' || product.id === 'tote-2' || product.id === 'tote-3') && key === 'Image Size' && product.pricingByImageSize) {
