@@ -3463,7 +3463,6 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         images: [
           'WhatsApp Image 2026-04-27 at 11.44.37 AM.jpeg',
           'WhatsApp Image 2026-04-27 at 11.44.41 AM.jpeg',
-          'WhatsApp Image 2026-04-27 at 11.44.44 AM (1).jpeg',
           'WhatsApp Image 2026-04-27 at 12.05.05 PM (1).jpeg',
           'WhatsApp Image 2026-04-27 at 12.05.05 PM.jpeg',
           'c3629542-dd92-4f62-a0ad-8a51a3007787.png'
@@ -3471,6 +3470,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         options: {
             gsm: ['190 GSM', '220 GSM'],
             size: ['M', 'L', 'XL','2XL'],
+            "print side": ['1-side', '2-side'],
             collar: ['Round Neck', 'Polo Neck'],
             color: ['White', 'Black', 'Ash', 'Magenta pink', 'Golden yellow', 'Navy blue', 'Red', 'Orange', 'Damro green', 'Lemon yellow', 'Luminas green', 'Carbon blue', 'Ice blue', 'Army green', 'Maroon']
           },
@@ -3484,7 +3484,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
               'Polo Neck': 2500
             }
           }
-      },
+      },     
       {
         id: 'apparel-2',
         name: 'Vetlook T-Shirt',
@@ -3496,7 +3496,6 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         images: [
             'WhatsApp Image 2026-04-27 at 11.44.44 AM.jpeg',
             'WhatsApp Image 2026-04-27 at 11.44.46 AM.jpeg',
-            'WhatsApp Image 2026-04-27 at 12.05.00 PM.jpeg',
             'WhatsApp Image 2026-04-27 at 12.05.01 PM.jpeg',
             'WhatsApp Image 2026-04-27 at 12.05.04 PM.jpeg',
             'c3629542-dd92-4f62-a0ad-8a51a3007787.png'
@@ -3504,6 +3503,7 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         options: {
             gsm: ['190 GSM'],
             size: ['M', 'L', 'XL','2XL'],
+            "print side": ['1-side', '2-side'],
             collar: ['Round Neck', 'Polo Neck'],
             color: ['Black', 'White', 'Ash', 'Magenta pink', 'Golden yellow', 'Navy blue', 'Red', 'Orange', 'Damro green', 'Lemon yellow', 'Luminas green', 'Carbon blue', 'Ice blue', 'Army green', 'Maroon']
           },
@@ -5176,18 +5176,35 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
         }
       }
 
-      // Auto-update price for T-Shirts based on GSM and Collar (apparel products)
-      if (product && product.pricingByGsmAndCollar && (key === 'gsm' || key === 'collar')) {
-        const selectedGsm = _modalState.selectedOptions['gsm'];
-        const selectedCollar = _modalState.selectedOptions['collar'];
-        
-        // Only update price if we have both selections
-        if (selectedGsm && selectedCollar && product.pricingByGsmAndCollar[selectedGsm] && product.pricingByGsmAndCollar[selectedGsm][selectedCollar]) {
-          const newPrice = product.pricingByGsmAndCollar[selectedGsm][selectedCollar];
-          document.getElementById('modal-price').textContent = `Rs. ${newPrice}`;
-          product.currentPrice = newPrice;
-        }
-      }
+      // Auto-update price for T-Shirts based on GSM, Collar and Print Side (apparel products)
+          if (
+              product &&
+              product.pricingByGsmAndCollar &&
+              (key === 'gsm' || key === 'collar' || key === 'print side')
+          ) {
+
+              const selectedGsm = _modalState.selectedOptions['gsm'];
+              const selectedCollar = _modalState.selectedOptions['collar'];
+              const selectedPrintSide = _modalState.selectedOptions['print side'];
+
+              if (
+                  selectedGsm &&
+                  selectedCollar &&
+                  product.pricingByGsmAndCollar[selectedGsm] &&
+                  product.pricingByGsmAndCollar[selectedGsm][selectedCollar]
+              ) {
+
+                  let newPrice = product.pricingByGsmAndCollar[selectedGsm][selectedCollar];
+
+                  // Add Rs.500 for 2-side printing
+                  if (selectedPrintSide === '2-side') {
+                      newPrice += 500;
+                  }
+
+                  document.getElementById('modal-price').textContent = `Rs. ${newPrice}`;
+                  product.currentPrice = newPrice;
+              }
+          }
 
       // Auto-update price for Sublimation Tote Bags based on Image Size
       if (product && (product.id === 'tote-1' || product.id === 'tote-2' || product.id === 'tote-3') && key === 'Image Size' && product.pricingByImageSize) {
