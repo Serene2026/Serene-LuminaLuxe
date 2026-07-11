@@ -5177,34 +5177,34 @@ border:2px solid #887355 !important; font-weight:700 !important; font-size:15px 
       }
 
       // Auto-update price for T-Shirts based on GSM, Collar and Print Side (apparel products)
-          if (
-              product &&
-              product.pricingByGsmAndCollar &&
-              (key === 'gsm' || key === 'collar' || key === 'print side')
-          ) {
+        if (
+            product &&
+            product.pricingByGsmAndCollar &&
+            (key === 'gsm' || key === 'collar' || key === 'print side')
+        ) {
 
-              const selectedGsm = _modalState.selectedOptions['gsm'];
-              const selectedCollar = _modalState.selectedOptions['collar'];
-              const selectedPrintSide = _modalState.selectedOptions['print side'];
+            const selectedGsm = _modalState.selectedOptions['gsm'];
+            const selectedCollar = _modalState.selectedOptions['collar'];
+            const selectedPrintSide = _modalState.selectedOptions['print side'];
 
-              if (
-                  selectedGsm &&
-                  selectedCollar &&
-                  product.pricingByGsmAndCollar[selectedGsm] &&
-                  product.pricingByGsmAndCollar[selectedGsm][selectedCollar]
-              ) {
+            // Only update price after ALL required options are selected
+            if (selectedGsm && selectedCollar && selectedPrintSide) {
 
-                  let newPrice = product.pricingByGsmAndCollar[selectedGsm][selectedCollar];
+                let newPrice = product.pricingByGsmAndCollar[selectedGsm][selectedCollar];
 
-                  // Add Rs.500 for 2-side printing
-                  if (selectedPrintSide === '2-side') {
-                      newPrice += 500;
-                  }
+                // Add Rs.500 for 2-side printing
+                if (selectedPrintSide === '2-side') {
+                    newPrice += 500;
+                }
 
-                  document.getElementById('modal-price').textContent = `Rs. ${newPrice}`;
-                  product.currentPrice = newPrice;
-              }
-          }
+                document.getElementById('modal-price').textContent = `Rs. ${newPrice}`;
+                product.currentPrice = newPrice;
+            } else {
+                // Clear price until all required options are selected
+                document.getElementById('modal-price').textContent = 'Please select GSM, Collar and Print Side';
+            }
+        }
+          
 
       // Auto-update price for Sublimation Tote Bags based on Image Size
       if (product && (product.id === 'tote-1' || product.id === 'tote-2' || product.id === 'tote-3') && key === 'Image Size' && product.pricingByImageSize) {
